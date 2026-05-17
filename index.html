@@ -70,13 +70,13 @@
     opacity: .6; pointer-events: none;
   }
 
-  /* Einbindung der Logo.jpg Bilddatei */
+  /* KORREKTUR: Logo im Hero-Bereich um 100% vergrößert (von 130px auf 260px) */
   .hero-logo-img {
     display: block;
-    width: 130px;
+    width: 260px;
     height: auto;
     position: relative; z-index: 10;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     opacity: 0; 
     animation: fadeUp .9s .2s ease forwards;
   }
@@ -203,7 +203,7 @@
     font-family: 'Cinzel', serif;
     font-size: 3.5rem; font-weight: 400; letter-spacing: .1em;
     color: rgba(30,58,40,.12); line-height: 1;
-    margin-bottom: 1.5rem; transition: color .35s;
+    margin-bottom: 1.5rem; transition: color .3s;
   }
   .feature-title {
     font-family: 'Cormorant Garamond', serif;
@@ -268,9 +268,11 @@
       repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(196,154,60,.06) 32px, rgba(196,154,60,.06) 33px),
       repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(196,154,60,.03) 32px, rgba(196,154,60,.03) 33px);
   }
+  
+  /* KORREKTUR: Auch das hinterlegte Handwerks-Logo um 100% vergrößert (von 100px auf 200px) */
   .craft-logo-img {
     display: block;
-    width: 100px;
+    width: 200px;
     height: auto;
     position: relative; z-index: 10;
     opacity: 0.4;
@@ -346,19 +348,17 @@
     font-size: .85rem; letter-spacing: .25em; color: var(--green);
   }
 
-  /* ── REVEAL ANIMATION (Ausfallsicher umgebaut) ── */
+  /* ── REVEAL ANIMATION ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(22px); }
     to   { opacity: 1; transform: translateY(0); }
   }
   
-  /* Standardmäßig sichtbare Elemente, falls JS blockiert ist */
   .reveal { 
     opacity: 1; 
     transform: translateY(0); 
   }
   
-  /* Nur wenn JavaScript aktiv ist und die Klasse gesteuert wird, animieren */
   .js-enabled .reveal {
     opacity: 0;
     transform: translateY(28px);
@@ -431,7 +431,7 @@
     </div>
     <div class="feature reveal">
       <div class="feature-num">II</div>
-      <div class="feature-title">Der Mechanismen</div>
+      <div class="feature-title">Der Mechanismus</div>
       <p class="feature-body">Ein präziser, patentierter Verbindungsmechanismus hält Standard-Spiralblöcke sicher im Einband. Wechseln ohne Werkzeug, in Sekunden.</p>
     </div>
     <div class="feature reveal">
@@ -488,7 +488,6 @@
 </footer>
 
 <script>
-  // Signalisiert dem CSS, dass JS läuft und die Animationen starten dürfen
   document.body.classList.add('js-enabled');
 
   const reveals = document.querySelectorAll('.reveal');
