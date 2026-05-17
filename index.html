@@ -62,7 +62,7 @@
       radial-gradient(ellipse 70% 50% at 50% 60%, rgba(196,154,60,.07) 0%, transparent 70%),
       radial-gradient(ellipse 50% 60% at 20% 30%, rgba(30,58,40,.04) 0%, transparent 60%);
   }
-  /* Subtle paper grain */
+  /* Papierstruktur */
   .hero::before {
     content: '';
     position: absolute; inset: 0;
@@ -70,11 +70,16 @@
     opacity: .6; pointer-events: none;
   }
 
-  .hero-symbol {
+  /* Einbindung der echten Logo-Datei */
+  .hero-logo-img {
+    max-width: 120px;
+    height: auto;
     position: relative; z-index: 1;
     opacity: 0; animation: fadeUp .9s .2s ease forwards;
-    margin-bottom: 2.8rem;
+    margin-bottom: 2.5rem;
+    mix-blend-mode: multiply; /* Blendet eventuelle weiße Bildhintergründe edel in den Cremeton ein */
   }
+
   .hero-eyebrow {
     font-size: .68rem; letter-spacing: .4em; text-transform: uppercase;
     color: var(--gold); font-weight: 400;
@@ -126,7 +131,7 @@
     0%,100% { opacity:.4; } 50% { opacity:1; }
   }
 
-  /* ── INTRO (dark green) ── */
+  /* ── INTRO ── */
   .intro {
     background: var(--green);
     padding: 8rem 3rem;
@@ -189,58 +194,4 @@
     transition: transform .35s ease;
   }
   .feature:hover { background: var(--green); }
-  .feature:hover::before { transform: scaleX(1); }
-  .feature:hover .feature-num  { color: rgba(196,154,60,.25); }
-  .feature:hover .feature-title { color: var(--cream); }
-  .feature:hover .feature-body  { color: rgba(240,232,216,.6); }
-  .feature-num {
-    font-family: 'Cinzel', serif;
-    font-size: 3.5rem; font-weight: 400; letter-spacing: .1em;
-    color: rgba(30,58,40,.12); line-height: 1;
-    margin-bottom: 1.5rem; transition: color .35s;
-  }
-  .feature-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem; font-weight: 400;
-    color: var(--green); margin-bottom: .8rem; transition: color .35s;
-  }
-  .feature-body {
-    font-size: .87rem; line-height: 1.85; color: var(--mid);
-    font-weight: 300; transition: color .35s;
-  }
-
-  /* ── SLOGAN BAND ── */
-  .slogan-band {
-    background: var(--gold);
-    padding: 5rem 3rem;
-    text-align: center; overflow: hidden; position: relative;
-  }
-  .slogan-band::before {
-    content: ''; position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      -45deg, rgba(255,255,255,.04) 0, rgba(255,255,255,.04) 1px,
-      transparent 0, transparent 50%);
-    background-size: 12px 12px;
-  }
-  .slogan-text {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(1.3rem, 3.5vw, 3rem);
-    font-weight: 400; letter-spacing: .15em;
-    color: var(--green); position: relative;
-  }
-  .slogan-dot { color: rgba(30,58,40,.5); }
-
-  /* ── CRAFT ── */
-  .craft {
-    padding: 9rem 3rem;
-    max-width: 940px; margin: 0 auto;
-    display: grid; grid-template-columns: 1.1fr 1fr; gap: 7rem; align-items: center;
-  }
-  .craft-label {
-    font-size: .68rem; letter-spacing: .35em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.5rem; font-weight: 400;
-  }
-  .craft h2 {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(1.5rem, 3vw, 2.8rem);
-    font-weight: 400; letter-spacing: .1
+  .feature:hover::before { transform:
