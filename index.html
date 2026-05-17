@@ -70,14 +70,15 @@
     opacity: .6; pointer-events: none;
   }
 
-  /* Einbindung der echten Logo-Datei */
+  /* Einbindung der Logo.jpg Bilddatei */
   .hero-logo-img {
-    max-width: 120px;
+    display: block;
+    width: 130px;
     height: auto;
-    position: relative; z-index: 1;
-    opacity: 0; animation: fadeUp .9s .2s ease forwards;
+    position: relative; z-index: 10;
     margin-bottom: 2.5rem;
-    mix-blend-mode: multiply; /* Blendet eventuelle weiße Bildhintergründe edel in den Cremeton ein */
+    opacity: 0; 
+    animation: fadeUp .9s .2s ease forwards;
   }
 
   .hero-eyebrow {
@@ -194,4 +195,313 @@
     transition: transform .35s ease;
   }
   .feature:hover { background: var(--green); }
-  .feature:hover::before { transform:
+  .feature:hover::before { transform: scaleX(1); }
+  .feature:hover .feature-num  { color: rgba(196,154,60,.25); }
+  .feature:hover .feature-title { color: var(--cream); }
+  .feature:hover .feature-body  { color: rgba(240,232,216,.6); }
+  .feature-num {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem; font-weight: 400; letter-spacing: .1em;
+    color: rgba(30,58,40,.12); line-height: 1;
+    margin-bottom: 1.5rem; transition: color .35s;
+  }
+  .feature-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-weight: 400;
+    color: var(--green); margin-bottom: .8rem; transition: color .35s;
+  }
+  .feature-body {
+    font-size: .87rem; line-height: 1.85; color: var(--mid);
+    font-weight: 300; transition: color .35s;
+  }
+
+  /* ── SLOGAN BAND ── */
+  .slogan-band {
+    background: var(--gold);
+    padding: 5rem 3rem;
+    text-align: center; overflow: hidden; position: relative;
+  }
+  .slogan-band::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, rgba(255,255,255,.04) 0, rgba(255,255,255,.04) 1px,
+      transparent 0, transparent 50%);
+    background-size: 12px 12px;
+  }
+  .slogan-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.3rem, 3.5vw, 3rem);
+    font-weight: 400; letter-spacing: .15em;
+    color: var(--green); position: relative;
+  }
+  .slogan-dot { color: rgba(30,58,40,.5); }
+
+  /* ── CRAFT ── */
+  .craft {
+    padding: 9rem 3rem;
+    max-width: 940px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 7rem; align-items: center;
+  }
+  .craft-label {
+    font-size: .68rem; letter-spacing: .35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem; font-weight: 400;
+  }
+  .craft h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.5rem, 3vw, 2.8rem);
+    font-weight: 400; letter-spacing: .1em;
+    color: var(--green); line-height: 1.2; margin-bottom: 2rem;
+  }
+  .craft p {
+    font-size: .9rem; line-height: 1.95; color: var(--mid);
+    font-weight: 300; margin-bottom: 1.2rem;
+  }
+  .craft-visual {
+    aspect-ratio: 3/4; background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .craft-visual::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(196,154,60,.06) 32px, rgba(196,154,60,.06) 33px),
+      repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(196,154,60,.03) 32px, rgba(196,154,60,.03) 33px);
+  }
+  .craft-logo-img {
+    display: block;
+    width: 100px;
+    height: auto;
+    position: relative; z-index: 10;
+    opacity: 0.4;
+  }
+
+  /* ── MATERIALS ── */
+  .materials {
+    background: var(--dark); padding: 5rem 3rem;
+  }
+  .materials-inner { max-width: 1000px; margin: 0 auto; }
+  .materials h3 {
+    font-family: 'Cinzel', serif; font-size: .8rem; font-weight: 400;
+    letter-spacing: .35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 3rem; text-align: center;
+  }
+  .mat-list {
+    display: flex; justify-content: center; flex-wrap: wrap;
+  }
+  .mat-item {
+    padding: 1rem 2.2rem;
+    border-right: 1px solid rgba(255,255,255,.07);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 300; font-style: italic;
+    color: rgba(240,232,216,.5); transition: color .3s;
+  }
+  .mat-item:last-child { border-right: none; }
+  .mat-item:hover { color: var(--gold-l); }
+
+  /* ── CTA ── */
+  .cta {
+    padding: 9rem 3rem;
+    text-align: center; max-width: 580px; margin: 0 auto;
+  }
+  .cta-eyebrow {
+    font-size: .68rem; letter-spacing: .4em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 2rem; font-weight: 400;
+  }
+  .cta h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    font-weight: 400; letter-spacing: .12em;
+    color: var(--green); line-height: 1.15; margin-bottom: 1.5rem;
+  }
+  .cta p {
+    font-size: .9rem; line-height: 1.9; color: var(--mid);
+    font-weight: 300; margin-bottom: 3rem;
+  }
+  .btn {
+    display: inline-block; padding: 1rem 3.5rem;
+    border: 1.5px solid var(--green);
+    font-family: 'Cinzel', serif;
+    font-size: .72rem; letter-spacing: .22em;
+    text-transform: uppercase; font-weight: 400;
+    text-decoration: none; color: var(--green);
+    transition: background .3s, color .3s;
+  }
+  .btn:hover { background: var(--green); color: var(--cream); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid rgba(30,58,40,.15);
+    padding: 2.5rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer a {
+    font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--mid); text-decoration: none; font-weight: 300;
+    transition: color .3s;
+  }
+  footer a:hover { color: var(--gold); }
+  .footer-logo {
+    font-family: 'Cinzel', serif; font-weight: 400;
+    font-size: .85rem; letter-spacing: .25em; color: var(--green);
+  }
+
+  /* ── REVEAL ANIMATION (Ausfallsicher umgebaut) ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Standardmäßig sichtbare Elemente, falls JS blockiert ist */
+  .reveal { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+  
+  /* Nur wenn JavaScript aktiv ist und die Klasse gesteuert wird, animieren */
+  .js-enabled .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .js-enabled .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 5rem; }
+    .intro-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .features { grid-template-columns: 1fr; gap: 2px; }
+    .craft { grid-template-columns: 1fr; gap: 3rem; }
+    .craft-visual { display: none; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .mat-item { padding: .7rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Regatura</a>
+  <span class="nav-sub">by Manufaktur Blattwerk</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <img class="hero-logo-img" src="Logo.jpg" alt="Regatura Logo">
+
+  <p class="hero-eyebrow">Das modulare Notizbuchsystem</p>
+  <h1 class="hero-title">REGATURA</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-slogan">Die Innenfreiheit der Bindung.</p>
+  <p class="hero-sub">by Manufaktur Blattwerk · Kirchzell</p>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Entdecken</span>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="intro-inner reveal">
+    <span class="intro-label">Die Idee</span>
+    <p class="intro-text">
+      <em>Legatura</em> — das italienische Wort für Buchbindung.
+      Ein <strong>handgefertigter Einband</strong>, der bleibt.
+      Ein Spiralblock, der wechselt. Eine Bindung, die befreit —
+      weil sie dich nicht an den Block kettet, sondern nur an das Schreiben.
+    </p>
+  </div>
+</section>
+
+<section class="system">
+  <div class="section-header reveal">
+    <h2>Das System</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="features">
+    <div class="feature reveal">
+      <div class="feature-num">I</div>
+      <div class="feature-title">Der Einband</div>
+      <p class="feature-body">Handgefertigt aus Holz, Leder, Kork oder Leinen. Ein Begleiter auf Jahrzehnte — mit Geschichte, die man sieht und fühlt.</p>
+    </div>
+    <div class="feature reveal">
+      <div class="feature-num">II</div>
+      <div class="feature-title">Der Mechanismen</div>
+      <p class="feature-body">Ein präziser, patentierter Verbindungsmechanismus hält Standard-Spiralblöcke sicher im Einband. Wechseln ohne Werkzeug, in Sekunden.</p>
+    </div>
+    <div class="feature reveal">
+      <div class="feature-num">III</div>
+      <div class="feature-title">Der Block</div>
+      <p class="feature-body">Handelsübliche Spiralblöcke A5 — kariert, liniert, blanko. Wenn voll: heraus, neu hinein, weiter. Der Einband bleibt.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slogan-band">
+  <p class="slogan-text reveal">
+    DIE INNENFREIHEIT DER BINDUNG<span class="slogan-dot">.</span>
+  </p>
+</section>
+
+<section class="craft">
+  <div>
+    <p class="craft-label reveal">Handwerk</p>
+    <h2 class="reveal">Gefertigt in<br>Kirchzell</h2>
+    <p class="reveal">Jeder Regatura-Einband entsteht von Hand in der Manufaktur Blattwerk — mit Materialien, die ausgewählt werden, weil sie altern wie gutes Leder: mit Charakter.</p>
+    <p class="reveal">Holzdeckel mit Intarsienarbeit. Einbände aus Kork, Leinen oder vegetabil gegerbtem Leder. Kein Stück ist wie das andere.</p>
+  </div>
+  <div class="craft-visual reveal">
+    <img class="craft-logo-img" src="Logo.jpg" alt="Regatura Detail">
+  </div>
+</section>
+
+<div class="materials">
+  <div class="materials-inner">
+    <h3 class="reveal">Materialien</h3>
+    <div class="mat-list reveal">
+      <span class="mat-item">Holz</span>
+      <span class="mat-item">Leder</span>
+      <span class="mat-item">Kork</span>
+      <span class="mat-item">Leinen</span>
+      <span class="mat-item">Intarsienarbeit</span>
+      <span class="mat-item">Handgeschöpftes Papier</span>
+    </div>
+  </div>
+</div>
+
+<section class="cta">
+  <p class="cta-eyebrow reveal">Interesse</p>
+  <h2 class="reveal">Ihr Einband.<br>Ihre Freiheit.</h2>
+  <p class="reveal">Regatura wird in Kürze erhältlich sein. Schreiben Sie uns — wir informieren Sie zum Launch und freuen uns über individuelle Anfragen.</p>
+  <a class="btn reveal" href="https://manufaktur-blattwerk.de">Zur Manufaktur</a>
+</section>
+
+<footer>
+  <a href="https://manufaktur-blattwerk.de">manufaktur-blattwerk.de</a>
+  <span class="footer-logo">REGATURA</span>
+  <a href="mailto:info@manufaktur-blattwerk.de">Kontakt</a>
+</footer>
+
+<script>
+  // Signalisiert dem CSS, dass JS läuft und die Animationen starten dürfen
+  document.body.classList.add('js-enabled');
+
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 90);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+<script data-goatcounter="https://sawa.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
