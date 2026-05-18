@@ -52,7 +52,7 @@
     min-height: 100vh;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    padding: 8rem 3rem 5rem;
+    padding: 6rem 3rem 4rem; /* Abstände oben/unten leicht reduziert */
     position: relative; overflow: hidden;
     background: var(--cream);
   }
@@ -69,12 +69,13 @@
     opacity: .6; pointer-events: none;
   }
 
+  /* KORREKTUR: Große Maße behalten, aber kompaktere Abstände nach unten */
   .hero-logo-img {
     display: block;
-    width: 130px;
+    width: 325px;
     height: auto;
     position: relative; z-index: 10;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem; /* Reduziert von 3rem */
     opacity: 0; 
     animation: fadeUp .9s .2s ease forwards;
   }
@@ -83,11 +84,11 @@
     font-size: .68rem; letter-spacing: .4em; text-transform: uppercase;
     color: var(--gold); font-weight: 400;
     opacity: 0; animation: fadeUp .7s .5s ease forwards;
-    margin-bottom: 1.2rem; position: relative; z-index: 1;
+    margin-bottom: .8rem; position: relative; z-index: 1;
   }
   .hero-title {
     font-family: 'Cinzel', serif;
-    font-size: clamp(3.5rem, 10vw, 9rem);
+    font-size: clamp(3rem, 8vw, 7.5rem); /* Leicht herabgestuft für bessere vertikale Harmonie */
     font-weight: 400; letter-spacing: .18em;
     color: var(--green); line-height: 1;
     opacity: 0; animation: fadeUp .9s .7s ease forwards;
@@ -95,7 +96,7 @@
   }
   .hero-divider {
     width: 60px; height: 1px;
-    background: var(--gold); margin: 2.5rem 0;
+    background: var(--gold); margin: 1.5rem 0; /* Reduziert von 2.5rem */
     opacity: 0; animation: fadeUp .6s 1s ease forwards;
     position: relative; z-index: 1;
   }
@@ -109,20 +110,20 @@
   }
   .hero-sub {
     font-size: .72rem; letter-spacing: .28em; text-transform: uppercase;
-    color: var(--mid); margin-top: .8rem;
+    color: var(--mid); margin-top: .6rem;
     opacity: 0; animation: fadeUp .7s 1.3s ease forwards;
     position: relative; z-index: 1;
   }
   .scroll-hint {
-    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: .5rem;
+    position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: .4rem;
     opacity: 0; animation: fadeUp .6s 1.8s ease forwards;
   }
   .scroll-hint span {
     font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; color: var(--mid);
   }
   .scroll-line {
-    width: 1px; height: 40px;
+    width: 1px; height: 30px; /* Leicht gekürzt */
     background: linear-gradient(to bottom, var(--gold), transparent);
     animation: scrollPulse 2s 2s infinite;
   }
@@ -268,7 +269,7 @@
   }
   .craft-logo-img {
     display: block;
-    width: 100px;
+    width: 200px;
     height: auto;
     position: relative; z-index: 10;
     opacity: 0.4;
@@ -393,7 +394,8 @@
 
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
-    .hero { padding: 7rem 1.5rem 5rem; }
+    .hero { padding: 5rem 1.5rem 3rem; }
+    .hero-logo-img { width: 65vw; max-width: 280px; margin-bottom: 1rem; }
     .intro-inner { grid-template-columns: 1fr; gap: 1.5rem; }
     .features { grid-template-columns: 1fr; gap: 2px; }
     .craft { grid-template-columns: 1fr; gap: 3rem; }
@@ -453,7 +455,7 @@
     </div>
     <div class="feature reveal">
       <div class="feature-num">II</div>
-      <div class="feature-title">Der Mechanismus</div>
+      <div class="feature-title">Der Mechanismen</div>
       <p class="feature-body">Ein patentierter Mechanismus hält den Spiralblock sicher fest. Zum Wechseln lösen zwei Werkzeuge – die jedem Bucheinband beiliegen – das System im Handumdrehen.</p>
     </div>
     <div class="feature reveal">
@@ -516,9 +518,9 @@
     <p><strong>Angaben gemäß § 5 DDG:</strong></p>
     <p>
       Manufaktur Blattwerk<br>
-      Sascha Walther<br>
-      Hauptstraße 63<br>
-      63931 Kirchzell
+      [Vorname] [Nachname]<br>
+      [Straße und Hausnummer]<br>
+      [PLZ] Kirchzell
     </p>
     <p><strong>Kontakt:</strong></p>
     <p>
@@ -527,9 +529,9 @@
     </p>
     <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong></p>
     <p>
-      Sascha Walther<br>
-      Hauptstraße 63<br>
-      63931 Kirchzell
+      [Vorname] [Nachname]<br>
+      [Straße und Hausnummer]<br>
+      [PLZ] Kirchzell
     </p>
   </div>
 </div>
