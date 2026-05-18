@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Regatura – Die Innenfreiheit der Bindung</title>
+<title>Regatura – Die Freiheit der Bindung</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -62,7 +62,6 @@
       radial-gradient(ellipse 70% 50% at 50% 60%, rgba(196,154,60,.07) 0%, transparent 70%),
       radial-gradient(ellipse 50% 60% at 20% 30%, rgba(30,58,40,.04) 0%, transparent 60%);
   }
-  /* Papierstruktur */
   .hero::before {
     content: '';
     position: absolute; inset: 0;
@@ -70,13 +69,12 @@
     opacity: .6; pointer-events: none;
   }
 
-  /* KORREKTUR: Logo im Hero-Bereich um 100% vergrößert (von 130px auf 260px) */
   .hero-logo-img {
     display: block;
-    width: 260px;
+    width: 130px;
     height: auto;
     position: relative; z-index: 10;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     opacity: 0; 
     animation: fadeUp .9s .2s ease forwards;
   }
@@ -203,7 +201,7 @@
     font-family: 'Cinzel', serif;
     font-size: 3.5rem; font-weight: 400; letter-spacing: .1em;
     color: rgba(30,58,40,.12); line-height: 1;
-    margin-bottom: 1.5rem; transition: color .3s;
+    margin-bottom: 1.5rem; transition: color .35s;
   }
   .feature-title {
     font-family: 'Cormorant Garamond', serif;
@@ -268,11 +266,9 @@
       repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(196,154,60,.06) 32px, rgba(196,154,60,.06) 33px),
       repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(196,154,60,.03) 32px, rgba(196,154,60,.03) 33px);
   }
-  
-  /* KORREKTUR: Auch das hinterlegte Handwerks-Logo um 100% vergrößert (von 100px auf 200px) */
   .craft-logo-img {
     display: block;
-    width: 200px;
+    width: 100px;
     height: auto;
     position: relative; z-index: 10;
     opacity: 0.4;
@@ -337,16 +333,42 @@
     padding: 2.5rem 3rem;
     display: flex; justify-content: space-between; align-items: center;
   }
-  footer a {
+  footer a, footer button {
     font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
     color: var(--mid); text-decoration: none; font-weight: 300;
-    transition: color .3s;
+    transition: color .3s; background: none; border: none; cursor: pointer;
+    font-family: inherit;
   }
-  footer a:hover { color: var(--gold); }
+  footer a:hover, footer button:hover { color: var(--gold); }
   .footer-logo {
     font-family: 'Cinzel', serif; font-weight: 400;
     font-size: .85rem; letter-spacing: .25em; color: var(--green);
   }
+
+  /* ── MODAL WINDOW (IMPRESSUM) ── */
+  .modal {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(17, 26, 20, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+    padding: 2rem;
+  }
+  .modal.open { opacity: 1; pointer-events: all; }
+  .modal-content {
+    background: var(--cream); color: var(--dark);
+    padding: 3rem; max-width: 600px; width: 100%;
+    max-height: 80vh; overflow-y: auto;
+    position: relative; border: 1px solid var(--gold);
+  }
+  .modal-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: none; border: none; font-size: 1.5rem; color: var(--mid);
+    cursor: pointer; transition: color 0.3s;
+  }
+  .modal-close:hover { color: var(--gold); }
+  .modal h4 { font-family: 'Cinzel', serif; letter-spacing: 0.1em; margin-bottom: 1.5rem; color: var(--green); }
+  .modal p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; color: var(--dark); font-weight: 300; }
 
   /* ── REVEAL ANIMATION ── */
   @keyframes fadeUp {
@@ -369,7 +391,6 @@
     transform: translateY(0);
   }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 5rem; }
@@ -379,6 +400,7 @@
     .craft-visual { display: none; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
     .mat-item { padding: .7rem 1rem; }
+    .modal-content { padding: 2rem; }
   }
 </style>
 </head>
@@ -397,7 +419,7 @@
   <p class="hero-eyebrow">Das modulare Notizbuchsystem</p>
   <h1 class="hero-title">REGATURA</h1>
   <div class="hero-divider"></div>
-  <p class="hero-slogan">Die Innenfreiheit der Bindung.</p>
+  <p class="hero-slogan">Die Freiheit der Bindung.</p>
   <p class="hero-sub">by Manufaktur Blattwerk · Kirchzell</p>
 
   <div class="scroll-hint">
@@ -432,7 +454,7 @@
     <div class="feature reveal">
       <div class="feature-num">II</div>
       <div class="feature-title">Der Mechanismus</div>
-      <p class="feature-body">Ein präziser, patentierter Verbindungsmechanismus hält Standard-Spiralblöcke sicher im Einband. Wechseln ohne Werkzeug, in Sekunden.</p>
+      <p class="feature-body">Ein patentierter Mechanismus hält den Spiralblock sicher fest. Zum Wechseln lösen zwei Werkzeuge – die jedem Bucheinband beiliegen – das System im Handumdrehen.</p>
     </div>
     <div class="feature reveal">
       <div class="feature-num">III</div>
@@ -444,7 +466,7 @@
 
 <section class="slogan-band">
   <p class="slogan-text reveal">
-    DIE INNENFREIHEIT DER BINDUNG<span class="slogan-dot">.</span>
+    DIE FREIHEIT DER BINDUNG<span class="slogan-dot">.</span>
   </p>
 </section>
 
@@ -484,8 +506,33 @@
 <footer>
   <a href="https://manufaktur-blattwerk.de">manufaktur-blattwerk.de</a>
   <span class="footer-logo">REGATURA</span>
-  <a href="mailto:info@manufaktur-blattwerk.de">Kontakt</a>
+  <button onclick="toggleModal(true)">Impressum</button>
 </footer>
+
+<div id="impressumModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="toggleModal(false)">&times;</button>
+    <h4>Impressum</h4>
+    <p><strong>Angaben gemäß § 5 DDG:</strong></p>
+    <p>
+      Manufaktur Blattwerk<br>
+      Sascha Walther<br>
+      Hauptstraße 63<br>
+      63931 Kirchzell
+    </p>
+    <p><strong>Kontakt:</strong></p>
+    <p>
+      E-Mail: info@manufaktur-blattwerk.de<br>
+      Webseite: manufaktur-blattwerk.de
+    </p>
+    <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong></p>
+    <p>
+      Sascha Walther<br>
+      Hauptstraße 63<br>
+      63931 Kirchzell
+    </p>
+  </div>
+</div>
 
 <script>
   document.body.classList.add('js-enabled');
@@ -500,6 +547,15 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => obs.observe(el));
+
+  function toggleModal(open) {
+    const modal = document.getElementById('impressumModal');
+    if (open) {
+      modal.classList.add('open');
+    } else {
+      modal.classList.remove('open');
+    }
+  }
 </script>
 <script data-goatcounter="https://sawa.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
